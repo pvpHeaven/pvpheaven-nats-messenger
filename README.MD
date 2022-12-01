@@ -1,4 +1,4 @@
-# 🌠 NATS Messenger :: pvpHeaven.pl
+# 🌠 NATS Messenger (Work in progress) :: pvpHeaven.pl
 Biblioteka stworzona na potrzeby serwera `pvpHeaven.pl`, udostępniona *for sake of humanity*.
 
 Rozszerza `pub/sub` z `NATS.io` o kodeki i możliwość *abstrakcji*.
