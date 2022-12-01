@@ -20,7 +20,7 @@ public final class NatsMessenger implements NatsClient {
 
     public static NatsMessenger create(@NonNull Options natsOptions) {
         Connection localNatsConnection = null;
-        do { /* Really ugly */
+        do { /* Hideous fixme */
             try {
                 localNatsConnection = Nats.connect(natsOptions);
             } catch (final IOException | InterruptedException x) {

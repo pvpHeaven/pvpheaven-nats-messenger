@@ -1,5 +1,8 @@
 package pl.pvpheaven.nats.messenger.codec;
 
+/**
+ * @implNote Default, built-in string codec. Can be used as example.
+ */
 public final class NatsStringCodec implements NatsCodec<String> {
 
     @Override
