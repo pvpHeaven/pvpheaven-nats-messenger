@@ -1,7 +1,7 @@
 package pl.pvpheaven.nats.messenger.codec;
 
 /**
- * @param <V> Object type
+ * @param <V> Value type
  */
 public interface NatsCodec<V> {
     /**

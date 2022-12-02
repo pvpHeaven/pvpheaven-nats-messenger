@@ -14,17 +14,18 @@ import java.util.logging.Logger;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public final class NatsMessenger implements NatsClient {
 
+    /* Utility */
     private static final Logger LOGGER = Logger.getLogger(NatsMessenger.class.getSimpleName());
 
     private final Connection natsConnection;
 
     public static NatsMessenger create(@NonNull Options natsOptions) {
         Connection localNatsConnection = null;
-        do { /* Hideous fixme */
+        do {
             try {
                 localNatsConnection = Nats.connect(natsOptions);
             } catch (final IOException | InterruptedException x) {
-                LOGGER.severe("Can't connect, waiting 30 seconds.");
+                LOGGER.severe("Can't connect! Retrying in 30 seconds...");
                 try {
                     Thread.sleep(30_000);
                 } catch (InterruptedException y) {
