@@ -3,24 +3,22 @@ package pl.pvpheaven.nats.messenger;
 import io.nats.client.Connection;
 import io.nats.client.Nats;
 import io.nats.client.Options;
-import lombok.AccessLevel;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import pl.pvpheaven.nats.messenger.codec.NatsCodec;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public final class NatsMessenger implements NatsClient {
 
-    /* Utility */
     private static final Logger LOGGER = Logger.getLogger(NatsMessenger.class.getSimpleName());
-
     private final Connection natsConnection;
 
-    public static NatsMessenger create(@NonNull Options natsOptions) {
+    private NatsMessenger(Connection natsConnection) {
+        this.natsConnection = natsConnection;
+    }
+
+    public static NatsMessenger create(Options natsOptions) {
         Connection localNatsConnection = null;
         try {
             localNatsConnection = Nats.connect(natsOptions);

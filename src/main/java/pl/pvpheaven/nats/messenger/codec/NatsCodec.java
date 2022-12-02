@@ -4,6 +4,7 @@ package pl.pvpheaven.nats.messenger.codec;
  * @param <V> Value type
  */
 public interface NatsCodec<V> {
+
     /**
      * @param byteArray Encoded message.
      * @return Decoded value.
@@ -15,4 +16,5 @@ public interface NatsCodec<V> {
      * @return Encoded message.
      */
     byte[] encodeValue(V value);
+
 }

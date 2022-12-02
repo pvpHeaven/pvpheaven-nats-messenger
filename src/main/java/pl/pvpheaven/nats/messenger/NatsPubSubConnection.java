@@ -1,16 +1,18 @@
 package pl.pvpheaven.nats.messenger;
 
 import io.nats.client.Connection;
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
 import pl.pvpheaven.nats.messenger.codec.NatsCodec;
 import pl.pvpheaven.nats.messenger.handler.NatsHandler;
 
-@RequiredArgsConstructor(access = AccessLevel.MODULE)
 final class NatsPubSubConnection<V> implements NatsConnection<V> {
 
     private final NatsCodec<V> natsCodec;
     private final Connection natsConnection;
+
+    NatsPubSubConnection(NatsCodec<V> natsCodec, Connection natsConnection) {
+        this.natsCodec = natsCodec;
+        this.natsConnection = natsConnection;
+    }
 
     @Override
     public void publish(String channel, V value) {
