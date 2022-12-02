@@ -34,3 +34,4 @@ class NatsMessageListener implements NatsHandler<String> {
 
 }
 ```
+Bardziej złożone przykłady (typu abstrakcja) znajdziesz [Tutaj](🌠 Biblioteka rozszerzająca NATS.io o dodatkowe funkcje).
