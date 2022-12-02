@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import pl.pvpheaven.nats.messenger.codec.NatsCodec;
 
 import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,18 +22,11 @@ public final class NatsMessenger implements NatsClient {
 
     public static NatsMessenger create(@NonNull Options natsOptions) {
         Connection localNatsConnection = null;
-        do {
-            try {
-                localNatsConnection = Nats.connect(natsOptions);
-            } catch (final IOException | InterruptedException x) {
-                LOGGER.severe("Can't connect! Retrying in 30 seconds...");
-                try {
-                    Thread.sleep(30_000);
-                } catch (InterruptedException y) {
-                    y.printStackTrace();
-                }
-            }
-        } while (localNatsConnection == null);
+        try {
+            localNatsConnection = Nats.connect(natsOptions);
+        } catch (final IOException | InterruptedException exception) {
+            LOGGER.log(Level.SEVERE, "Something went wrong while connecting to NATS server!", exception);
+        }
         return new NatsMessenger(localNatsConnection);
     }
 
