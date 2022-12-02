@@ -6,7 +6,7 @@
 
     <groupId>pl.pvpheaven</groupId>
     <artifactId>pvpheaven-nats-messenger</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <dependencies>
         <!-- NATS -->
