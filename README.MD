@@ -19,12 +19,7 @@ final NatsConnection<String> natsConnection = natsClient.createConnection(new Na
 ```java
 natsConnection.subscribe("test-channel", new NatsTestListener());
 /* Lub */
-natsConnection.subscribe("test-channel", new NatsAdapter<String>() {
-    @Override
-    public void onMessageReceive(String value) {
-        System.out.println(value);
-    }
-});
+natsConnection.subscribe("test-channel", value -> System.out.println(value));
 natsConnection.publish("test-channel", "Test message!");
 ```
 
