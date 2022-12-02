@@ -1,12 +1,12 @@
 # 🌠 NATS Messenger (Work In Progress)
-Biblioteka stworzona na potrzeby serwera `pvpHeaven.pl`, udostępniona *for sake of humanity*.
+Library made for needs of our server and published *for sake of humanity*.
 
-Rozszerza `pub/sub` z `NATS.io` o kodeki i możliwość *abstrakcji*.
+It extends `pub/sub` from `NATS.io` with lettuce-like (redis library) codecs and *abstraction* capabilities.
 
 ---
-## 🌠 NATS Messenger :: Użycie
+## 🌠 NATS Messenger :: Usage
 
-> Tworzenie klienta i połączenia:
+> Creating new client and connection:
 ```java
 final Options options = new Options.Builder()
         .server("nats://demo.nats.io:4222")
@@ -15,15 +15,15 @@ final NatsClient natsClient = NatsMessenger.create(options);
 final NatsConnection<String> natsConnection = natsClient.createConnection(new NatsStringCodec());
 ```
 
-> Subskrybowanie kanałów i publikowanie wiadomości:
+> Subscribing to a channel and publishing messages:
 ```java
 natsConnection.subscribe("test-channel", new NatsTestListener());
-/* Lub */
+/* Or */
 natsConnection.subscribe("test-channel", value -> System.out.println(value));
 natsConnection.publish("test-channel", "Test message!");
 ```
 
-> Przykładowy "słuchacz" wiadomości:
+> Example message listener:
 ```java
 class NatsMessageListener implements NatsHandler<String> {
 
@@ -34,4 +34,4 @@ class NatsMessageListener implements NatsHandler<String> {
 
 }
 ```
-[🌠 Bardziej rozbudowane przykłady użycia pvpheaven-nats-messenger.](https://github.com/nwseOOO/pvpheaven-nats-messenger-examples)
+[🌠 More advanced examples of pvpheaven-nats-messenger.](https://github.com/nwseOOO/pvpheaven-nats-messenger-examples)
