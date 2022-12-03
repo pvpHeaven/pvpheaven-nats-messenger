@@ -12,25 +12,25 @@ import java.util.logging.Logger;
 public final class NatsMessenger implements NatsClient {
 
     private static final Logger LOGGER = Logger.getLogger(NatsMessenger.class.getSimpleName());
-    private final Connection natsConnection;
+    private final Options natsOptions;
 
-    private NatsMessenger(Connection natsConnection) {
-        this.natsConnection = natsConnection;
+    private NatsMessenger(Options natsOptions) {
+        this.natsOptions = natsOptions;
     }
 
     public static NatsMessenger create(Options natsOptions) {
+        return new NatsMessenger(natsOptions);
+    }
+
+    @Override
+    public <V> NatsConnection<V> createConnection(NatsCodec<V> natsCodec) {
         Connection localNatsConnection = null;
         try {
             localNatsConnection = Nats.connect(natsOptions);
         } catch (final IOException | InterruptedException exception) {
             LOGGER.log(Level.SEVERE, "Something went wrong while connecting to NATS server!", exception);
         }
-        return new NatsMessenger(localNatsConnection);
-    }
-
-    @Override
-    public <V> NatsConnection<V> createConnection(NatsCodec<V> natsCodec) {
-        return new NatsPubSubConnection<>(natsCodec, this.natsConnection);
+        return new NatsDurableConnection<>(natsCodec, localNatsConnection);
     }
 
 }

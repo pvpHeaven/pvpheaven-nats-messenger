@@ -4,12 +4,12 @@ import io.nats.client.Connection;
 import pl.pvpheaven.nats.messenger.codec.NatsCodec;
 import pl.pvpheaven.nats.messenger.handler.NatsHandler;
 
-final class NatsPubSubConnection<V> implements NatsConnection<V> {
+final class NatsDurableConnection<V> implements NatsConnection<V> {
 
     private final NatsCodec<V> natsCodec;
     private final Connection natsConnection;
 
-    NatsPubSubConnection(NatsCodec<V> natsCodec, Connection natsConnection) {
+    NatsDurableConnection(NatsCodec<V> natsCodec, Connection natsConnection) {
         this.natsCodec = natsCodec;
         this.natsConnection = natsConnection;
     }
