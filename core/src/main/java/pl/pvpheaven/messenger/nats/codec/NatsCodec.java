@@ -1,4 +1,4 @@
-package pl.pvpheaven.nats.messenger.codec;
+package pl.pvpheaven.messenger.nats.codec;
 
 /**
  * @param <V> Value type

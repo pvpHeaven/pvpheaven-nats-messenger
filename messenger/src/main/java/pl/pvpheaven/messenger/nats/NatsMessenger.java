@@ -1,9 +1,10 @@
-package pl.pvpheaven.nats.messenger;
+package pl.pvpheaven.messenger.nats;
 
 import io.nats.client.Connection;
 import io.nats.client.Nats;
 import io.nats.client.Options;
-import pl.pvpheaven.nats.messenger.codec.NatsCodec;
+import pl.pvpheaven.messenger.nats.codec.NatsCodec;
+import pl.pvpheaven.messenger.nats.connection.NatsConnection;
 
 import java.io.IOException;
 import java.util.logging.Level;

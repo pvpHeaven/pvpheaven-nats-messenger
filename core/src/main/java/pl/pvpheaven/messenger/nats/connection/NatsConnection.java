@@ -1,6 +1,8 @@
-package pl.pvpheaven.nats.messenger;
+package pl.pvpheaven.messenger.nats.connection;
 
-import pl.pvpheaven.nats.messenger.handler.NatsHandler;
+import pl.pvpheaven.messenger.nats.handler.NatsHandler;
+
+import java.time.Duration;
 
 /**
  * @param <V> Value type
@@ -18,5 +20,10 @@ public interface NatsConnection<V> {
      * @param natsHandler Message handler that will do actions on message received.
      */
     void subscribe(String channel, NatsHandler<V> natsHandler);
+
+    /**
+     * @param timeout Guarantees our server has processed the message.
+     */
+    void flush(Duration timeout);
 
 }

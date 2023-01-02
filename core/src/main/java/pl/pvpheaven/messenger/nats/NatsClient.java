@@ -1,6 +1,7 @@
-package pl.pvpheaven.nats.messenger;
+package pl.pvpheaven.messenger.nats;
 
-import pl.pvpheaven.nats.messenger.codec.NatsCodec;
+import pl.pvpheaven.messenger.nats.codec.NatsCodec;
+import pl.pvpheaven.messenger.nats.connection.NatsConnection;
 
 public interface NatsClient {
 

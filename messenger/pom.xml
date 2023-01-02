@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>nats-messenger</artifactId>
+        <groupId>pl.pvpheaven.pvpheaven-nats-messenger</groupId>
+        <version>2.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>messenger</artifactId>
+
+    <dependencies>
+        <!-- Core -->
+        <dependency>
+            <groupId>pl.pvpheaven.pvpheaven-nats-messenger</groupId>
+            <artifactId>core</artifactId>
+            <version>2.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- Codec pack (optional) -->
+        <dependency>
+            <groupId>pl.pvpheaven.pvpheaven-nats-messenger</groupId>
+            <artifactId>codec-pack</artifactId>
+            <version>2.0.0</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <!-- NATS -->
+        <dependency>
+            <groupId>io.nats</groupId>
+            <artifactId>jnats</artifactId>
+            <version>2.16.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit Jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

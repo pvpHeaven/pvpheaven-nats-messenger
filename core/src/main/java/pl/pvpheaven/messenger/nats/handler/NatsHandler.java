@@ -1,4 +1,4 @@
-package pl.pvpheaven.nats.messenger.handler;
+package pl.pvpheaven.messenger.nats.handler;
 
 /**
  * @param <V> Value type
