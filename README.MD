@@ -21,6 +21,8 @@ natsConnection.subscribe("test-channel", new NatsTestListener());
 /* Or */
 natsConnection.subscribe("test-channel", value -> System.out.println(value));
 natsConnection.publish("test-channel", "Test message!");
+
+natsConnection.flush(Duration.ZERO);
 ```
 
 > Example message listener:
