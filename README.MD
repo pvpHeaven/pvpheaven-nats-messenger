@@ -36,4 +36,4 @@ class NatsMessageListener implements NatsHandler<String> {
 
 }
 ```
-[🌠 More advanced examples of pvpheaven-nats-messenger.](https://github.com/nwseOOO/pvpheaven-nats-messenger-examples)
+[🌠 More advanced examples of pvpheaven-nats-messenger.](https://github.com/nwseOOO/pvpheaven-nats-messenger-examples) (Can be outdated!!!)
