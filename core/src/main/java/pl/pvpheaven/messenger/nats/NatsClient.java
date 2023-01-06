@@ -6,9 +6,9 @@ import pl.pvpheaven.messenger.nats.connection.NatsConnection;
 public interface NatsClient {
 
     /**
+     * @param <V> Connection value type.
      * @param natsCodec Codec that will encode and decode our messages.
      * @return new NatsConnection for value type.
-     * @param <V> Connection value type.
      */
     <V> NatsConnection<V> createConnection(NatsCodec<V> natsCodec);
 
